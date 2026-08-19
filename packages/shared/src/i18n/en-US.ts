@@ -539,6 +539,7 @@ export const enUS = {
     append: "Append to note",
     replace: "Replace note",
     replaceSelection: "Accept and replace selection",
+    applyFailed: "Could not apply the generated result. Select the content again and retry.",
     configure: "Configure an AI model in Me → AI Integrations first.",
   },
   accountInfo: {
@@ -687,6 +688,14 @@ export const enUS = {
       focusReplace: {
         label: "Replace text",
         description: "Open replace in the current note.",
+      },
+      saveAndSync: {
+        label: "Save and sync",
+        description: "Save the current note now and sync pending local changes.",
+      },
+      toggleEditorMode: {
+        label: "Switch editor mode",
+        description: "Switch between Markdown source and rich text editing.",
       },
     },
   },
@@ -1206,7 +1215,12 @@ export const enUS = {
     warning: "This action cannot be undone. Any notes or changes that have not been synced will be permanently lost.",
     confirm: "Clear local data",
     clearing: "Clearing...",
-    error: "Local data could not be cleared. Please try again.",
+    errors: {
+      unsafeDataDirectory: "EdgeEver could not verify that the local data folder is safe to remove. Your data was not changed.",
+      applicationBundleNotFound: "EdgeEver could not identify the installed app needed to restart after clearing. Reinstall EdgeEver in Applications and try again.",
+      helperStartFailed: "EdgeEver could not start the macOS data-clearing helper. Your data was not changed. Restart the app and try again.",
+      unexpected: "An unexpected error occurred before local data could be cleared. Your data was not changed. Restart the app and try again.",
+    },
   },
   loginDevices: {
     title: "Signed-in devices",
@@ -1400,7 +1414,7 @@ export const enUS = {
     closeNotice: "Close update notice",
     sidebarInstall: "Download Desktop Client",
     sidebarInstallTitle: "Download the EdgeEver Desktop Client",
-    sidebarInstallAvailability: "Mac available · Windows coming soon",
+    sidebarInstallAvailability: "Mac/iOS/Android available · Windows soon",
     sidebarClipper: "Install Web Clipper",
     sidebarClipperTitle: "Install the EdgeEver Web Clipper",
     iosPrompt: {
