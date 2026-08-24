@@ -1,19 +1,17 @@
 {
-  "version": "1.38.0",
+  "version": "1.40.0",
   "changes": {
     "en-US": [
-      "Create polished shareable note images on Web, Android, and iOS with PNG/JPEG export, eight poster themes, typography controls, and brand styling.",
-      "Link notes quickly with @ suggestions and open referenced notes directly from the editor.",
-      "Insert the current date or time through new editor slash commands.",
-      "Preserve edits more reliably when reconciling synchronized memo placeholders.",
-      "Make official Docker releases consistently available from both GHCR and Tencent TCR for smoother self-hosted deployments."
+      "Access Web, desktop, Android, and iOS clients from a compact download menu in the sidebar.",
+      "Enjoy clearer workspace hierarchy, more consistent contrast, and refined colors across themes, editor views, exported notes, and print output.",
+      "Use self-hosted Docker instances over HTTP without client identity, sync, or rendering failures.",
+      "Desktop updates are now discovered more reliably, with clearer instance and version information in the app."
     ],
     "zh-CN": [
-      "在 Web、Android 和 iOS 上生成精美的笔记分享图片，支持 PNG/JPEG 导出、8 款海报主题、排版调节与品牌样式。",
-      "通过 @ 建议快速链接笔记，并可直接从编辑器打开引用的笔记。",
-      "通过新增的编辑器斜杠命令插入当前日期或时间。",
-      "在协调同步笔记占位记录时更可靠地保留编辑内容。",
-      "让官方 Docker Release 稳定发布到 GHCR 与腾讯云 TCR，改善自托管部署体验。"
+      "现在可通过侧边栏中的紧凑下载菜单快速访问 Web、桌面、Android 和 iOS 客户端。",
+      "优化工作区层级、交互对比度与主题配色，并统一编辑视图、导出笔记和打印内容的视觉表现。",
+      "修复自托管 Docker 实例通过 HTTP 访问时可能出现的客户端标识、同步和渲染问题。",
+      "提升桌面端更新发现的可靠性，并在应用内提供更清晰的实例与版本信息。"
     ]
   }
 }
