@@ -1,17 +1,15 @@
 {
-  "version": "1.42.1",
+  "version": "1.45.0",
   "changes": {
     "en-US": [
-      "Keep newly created notes selected after sync, and make links between publicly shared notes open correctly.",
-      "Make downloaded desktop updates clearly actionable so they can be installed without hunting for the update control.",
-      "Prevent desktop edits from being reported as sync conflicts after a newer local change supersedes an in-flight sync.",
-      "Improve nested-list editing so Tab, Shift+Tab, Backspace, and indentation controls behave consistently."
+      "Display attachment types and file sizes consistently, with safer attachment rendering and editing across Web, Android, and iOS.",
+      "Load images and shared resources whose filenames contain Chinese or special characters correctly.",
+      "Keep Android local API forwarding available while the app is running to reduce request failures."
     ],
     "zh-CN": [
-      "修复新建笔记同步后的选中状态，并让公开分享笔记之间的引用链接正确打开。",
-      "让已下载的桌面更新显示明确的安装入口，无需再寻找更新控件。",
-      "修复桌面端较新的本地编辑覆盖同步中变更时被误报为同步冲突的问题。",
-      "改进多级列表编辑，使 Tab、Shift+Tab、退格键和缩进控件的行为保持一致。"
+      "统一展示附件类型与文件大小，并提升 Web、Android 和 iOS 上附件渲染与编辑的兼容性。",
+      "修复中文或特殊字符文件名导致图片及共享资源无法正常加载的问题。",
+      "保持 Android 应用运行期间的本地 API 转发可用，减少请求失败。"
     ]
   }
 }
