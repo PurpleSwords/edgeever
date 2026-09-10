@@ -15,7 +15,7 @@ import { GitHubMark } from "@/components/GitHubRepositoryLink";
 import { applyPluginUpdate, checkPluginUpdates, type PluginUpdateInfo } from "@/lib/plugins/plugin-updates";
 import { PluginUpdateDialog } from "@/components/plugins/PluginUpdateDialog";
 import { PluginSettingsSection } from "@/components/plugins/PluginSettingsSection";
-import { buildPluginCatalogItems } from "@/lib/plugins/plugin-catalog";
+import { buildPluginCatalogItems, getPluginCatalogSourceKey } from "@/lib/plugins/plugin-catalog";
 import { getPluginDetailPage, getPluginDetailPath, hasPluginSettings, type PluginDetailPage } from "@/lib/plugins/plugin-navigation";
 import type { ScheduledTask } from "@edgeever/shared";
 import { api, getOrCreateClientDeviceId } from "@/lib/api";
@@ -85,7 +85,7 @@ const LegacyManualScheduledTasksSection = () => {
 
       <div className="mt-4 grid gap-2">
         {tasks.map((task) => (
-          <div key={task.id} className="flex flex-wrap items-center gap-3 rounded-md border border-slate-200 bg-white px-3 py-2">
+          <div key={task.id} className="flex flex-wrap items-center gap-3 rounded-md border border-slate-200 bg-card px-3 py-2">
             <div className="min-w-0 flex-1">
               <div className="truncate text-xs font-semibold text-slate-800">{task.name}</div>
               <div className="mt-0.5 truncate font-mono text-[10px] text-slate-400">
@@ -377,12 +377,11 @@ export const PluginManagerCard = ({
         ["plugin-updates", extensionVersionKey, refreshedMarketplace.data?.updatedAt ?? "unavailable"],
         result,
       );
-      const firstCheckError = Object.values({
-        ...(refreshedMarketplace.data?.resolutionErrors ?? {}),
-        ...result.errors,
-      })[0];
-      setLastManualCheckCount(firstCheckError ? null : result.updates.length);
-      if (firstCheckError) setError(t("plugins.updates.checkFailed", { message: firstCheckError }));
+      setLastManualCheckCount(result.updates.length);
+      const checkErrors = Object.values(result.errors);
+      if (checkErrors.length > 0 && checkErrors.length === snapshot.extensions.length) {
+        setError(t("plugins.updates.checkFailed", { message: checkErrors[0] }));
+      }
     } catch (checkError) {
       setError(checkError instanceof Error ? checkError.message : String(checkError));
     } finally {
@@ -391,10 +390,13 @@ export const PluginManagerCard = ({
   };
 
   const toggleExtension = (extension: InstalledExtension, enabled: boolean) => {
+    const catalogItem = catalogItems.find((item) => item.id === extension.manifest.id)
+      ?? { id: extension.manifest.id, extension };
     if (shouldRequestPluginTrustAcknowledgement({
       acknowledged: hasAcknowledgedPluginTrustWarning(),
       enabled,
       extensionType: extension.manifest.type,
+      isOfficial: getPluginCatalogSourceKey(catalogItem) === "official",
     })) {
       setPendingTrustPluginId(extension.manifest.id);
       return;
@@ -424,7 +426,7 @@ export const PluginManagerCard = ({
           <CardTitle className="flex items-center gap-2 text-sm">
             <Puzzle className="h-4 w-4 text-emerald-700" />
             {selectedPluginId ? t("plugins.details.title") : t("plugins.title")}
-            <span className="inline-flex items-center rounded-full border border-emerald-200/80 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-emerald-700 dark:border-emerald-800/60 dark:bg-emerald-950/50 dark:text-emerald-300">
+            <span className="inline-flex items-center rounded-full border border-emerald-200/80 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-emerald-700   ">
               Beta
             </span>
           </CardTitle>
@@ -471,7 +473,7 @@ export const PluginManagerCard = ({
             <span>{t("plugins.marketplace.loadFailed", {
               message: marketplaceQuery.error instanceof Error ? marketplaceQuery.error.message : String(marketplaceQuery.error),
             })}</span>
-            <Button size="sm" variant="outline" className="h-7 bg-white px-2 text-xs" onClick={() => void marketplaceQuery.refetch()}>
+            <Button size="sm" variant="outline" className="h-7 bg-card px-2 text-xs" onClick={() => void marketplaceQuery.refetch()}>
               {t("plugins.marketplace.retry")}
             </Button>
           </div>

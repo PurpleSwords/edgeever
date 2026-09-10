@@ -1,15 +1,15 @@
 {
-  "version": "1.63.2",
+  "version": "1.65.0",
   "changes": {
     "en-US": [
-      "Fix GitHub marketplace plugin installs failing with Failed to fetch on desktop. The instance now resolves official releases and downloads plugin assets, so daily updates no longer need a client-side GitHub API round trip. Update both the instance and the desktop app.",
-      "Fix Docker/NAS upgrades that drop container environment variables, leaving login working while AI and object-storage credentials could no longer be encrypted and new model services could not be added. The encryption root is stored on the data volume and generated when missing; the add-service form no longer looks fillable while encryption is unavailable. If saved credentials cannot be decrypted, re-enter the API key.",
-      "Fix the AI settings pane crashing when provider names, base URLs, or tag-suggestion prompts are missing."
+      "Export selected notes as a Markdown ZIP with attachments from the note list. Unsynced notes are skipped, and notes in trash cannot be exported.",
+      "Keep diagram auto-layout grouped, compact, and readable. Switching notes refits the canvas, and a newly inserted mind-map topic stays in view after Tab.",
+      "Fix dark-mode colors so they follow the theme instead of leftover utility remaps, while PDF paper stays white."
     ],
     "zh-CN": [
-      "修复桌面端从 GitHub 插件市场安装失败（Failed to fetch）的问题。实例会代为解析官方 Release 并下载插件，日常更新不再依赖客户端直接访问 GitHub。请同时更新实例和桌面端。",
-      "修复 Docker/NAS 升级丢掉容器环境变量后，登录仍可用但无法加密保存 AI 与对象存储凭据、也无法添加模型服务的问题。加密根密钥会写入数据卷，缺失时自动生成；加密仍不可用时“添加服务”不再呈现为可填写。若已保存的密钥无法解密，请重新填写 API Key。",
-      "修复 AI 设置在服务名称、接口地址或标签建议提示词缺失时崩溃的问题。"
+      "笔记列表支持将选中笔记批量导出为带附件的 Markdown ZIP；未同步笔记会被跳过，回收站内笔记不可导出。",
+      "图表自动布局更紧凑、更易读；切换笔记后画布会重新适配，Tab 新建思维导图主题也会留在可视范围内。",
+      "修复深色模式下部分界面颜色与主题不一致的问题，PDF 预览仍保持白底。"
     ]
   }
 }
