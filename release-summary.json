@@ -1,15 +1,17 @@
 {
-  "version": "1.65.0",
+  "version": "1.67.0",
   "changes": {
     "en-US": [
-      "Export selected notes as a Markdown ZIP with attachments from the note list. Unsynced notes are skipped, and notes in trash cannot be exported.",
-      "Keep diagram auto-layout grouped, compact, and readable. Switching notes refits the canvas, and a newly inserted mind-map topic stays in view after Tab.",
-      "Fix dark-mode colors so they follow the theme instead of leftover utility remaps, while PDF paper stays white."
+      "Stream AI note generation on desktop and mobile, and on the web when the model host allows a direct connection; proxied web replies stay complete, and the old streaming setting is gone.",
+      "Keep the bulk-move destination from snapping back to the current notebook, so Move actually relocates selected notes.",
+      "Paint filled buttons, badges, and progress bars with the brand green instead of a darker emerald.",
+      "Keep the diagram editor title bar on the theme surface so dark mode no longer puts light text on a white header."
     ],
     "zh-CN": [
-      "笔记列表支持将选中笔记批量导出为带附件的 Markdown ZIP；未同步笔记会被跳过，回收站内笔记不可导出。",
-      "图表自动布局更紧凑、更易读；切换笔记后画布会重新适配，Tab 新建思维导图主题也会留在可视范围内。",
-      "修复深色模式下部分界面颜色与主题不一致的问题，PDF 预览仍保持白底。"
+      "桌面端和移动端的 AI 笔记生成改为实时流式输出；网页端在模型服务允许直连时同样流式返回，经实例代理时仍整段给出结果，并去掉原来的流式开关。",
+      "批量移动时目标笔记本不再被当前笔记本覆盖，移动操作会真正生效。",
+      "实心按钮、徽章和进度条改用品牌绿，不再偏深一档。",
+      "图表笔记标题栏改用主题表面色，避免暗色模式下浅色文字落在白底上。"
     ]
   }
 }
